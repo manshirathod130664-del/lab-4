@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techwood University - Excellence in Education</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #fdbb2d;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(253, 187, 45, 0.8);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a2a6c;
+            font-size: 32px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        /* Vision & Mission */
+        .vision-mission {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .vm-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .vm-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #1a2a6c;
+        }
+        
+        .vm-item h3 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .vm-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Program Outcomes */
+        .outcomes {
+            background-color: #f8f9fa;
+        }
+        
+        .outcomes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .outcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .outcome-card h3 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .outcome-card ul {
+            list-style-type: none;
+        }
+        
+        .outcome-card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .outcome-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #b21f1f;
+            font-weight: bold;
+        }
+        
+        /* Courses */
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-img {
+            height: 160px;
+            background-color: #1a2a6c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .course-content {
+            padding: 20px;
+        }
+        
+        .course-content h3 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .course-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .course-duration {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            background-color: #f8f9fa;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Recruiters */
+        .recruiters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .recruiter-logo {
+            height: 100px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .recruiter-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .recruiter-logo span {
+            font-weight: bold;
+            color: #1a2a6c;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a2a6c, #0d1b4d);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #fdbb2d;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #fdbb2d;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #fdbb2d;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>Techwood <span>University</span></h1>
+                </div>
+                <div class="contact-info">
+                    <p>Email: info@techwood.edu</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#vision">Vision & Mission</a></li>
+                    <li><a href="#outcomes">Program Outcomes</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#recruiters">Recruiters</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Excellence in Education Since 1985</h2>
+            <p>Shaping futures through innovation, research, and holistic development</p>
+            <a href="#courses" class="btn">Explore Our Programs</a>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision">
+        <div class="container">
+            <h2 class="section-title">Vision & Mission</h2>
+            <div class="vision-mission">
+                <div class="vm-container">
+                    <div class="vm-item">
+                        <h3>Our Vision</h3>
+                        <p>To be a globally recognized institution of higher learning, committed to excellence in teaching, research, and innovation. We envision creating leaders who will drive positive change in society through knowledge, ethics, and sustainable practices.</p>
+                    </div>
+                    <div class="vm-item">
+                        <h3>Our Mission</h3>
+                        <p>To provide transformative education that fosters critical thinking, creativity, and collaboration. We are dedicated to developing well-rounded individuals equipped with the skills and values needed to succeed in a rapidly changing world and contribute meaningfully to their communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Outcomes -->
+    <section id="outcomes" class="outcomes">
+        <div class="container">
+            <h2 class="section-title">Program Specific Outcomes</h2>
+            <div class="outcomes-container">
+                <div class="outcome-card">
+                    <h3>Engineering Programs</h3>
+                    <ul>
+                        <li>Apply knowledge of mathematics, science, and engineering fundamentals</li>
+                        <li>Design and conduct experiments, analyze and interpret data</li>
+                        <li>Design systems, components, or processes to meet needs</li>
+                        <li>Function effectively on multidisciplinary teams</li>
+                    </ul>
+                </div>
+                <div class="outcome-card">
+                    <h3>Business Programs</h3>
+                    <ul>
+                        <li>Apply business concepts and theories to solve real-world problems</li>
+                        <li>Demonstrate effective communication and presentation skills</li>
+                        <li>Analyze ethical dilemmas in business contexts</li>
+                        <li>Develop strategic plans for organizational success</li>
+                    </ul>
+                </div>
+                <div class="outcome-card">
+                    <h3>Arts & Sciences</h3>
+                    <ul>
+                        <li>Demonstrate critical thinking and analytical skills</li>
+                        <li>Communicate effectively in written and oral forms</li>
+                        <li>Understand diverse cultural and historical perspectives</li>
+                        <li>Apply interdisciplinary approaches to complex problems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Offered -->
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">Courses Offered</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #1a2a6c, #0d1b4d);">
+                        Engineering
+                    </div>
+                    <div class="course-content">
+                        <h3>Computer Science</h3>
+                        <p>Comprehensive program covering software development, AI, and data science.</p>
+                        <div class="course-duration">
+                            <span>B.Tech</span>
+                            <span>4 Years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #b21f1f, #8a1a1a);">
+                        Business
+                    </div>
+                    <div class="course-content">
+                        <h3>MBA</h3>
+                        <p>Develop leadership skills and business acumen for corporate success.</p>
+                        <div class="course-duration">
+                            <span>Master's</span>
+                            <span>2 Years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #fdbb2d, #e6a10f);">
+                        Arts
+                    </div>
+                    <div class="course-content">
+                        <h3>Psychology</h3>
+                        <p>Study human behavior and mental processes through scientific methods.</p>
+                        <div class="course-duration">
+                            <span>B.A.</span>
+                            <span>3 Years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f);">
+                        Sciences
+                    </div>
+                    <div class="course-content">
+                        <h3>Biotechnology</h3>
+                        <p>Explore the intersection of biology and technology for innovation.</p>
+                        <div class="course-duration">
+                            <span>B.Sc.</span>
+                            <span>3 Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Campus Life & Events</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <div style="background: #1a2a6c; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        Graduation Ceremony
+                    </div>
+                    <div class="gallery-caption">Annual Graduation Day 2023</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="background: #b21f1f; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        Tech Fest
+                    </div>
+                    <div class="gallery-caption">Annual Technical Festival</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="background: #fdbb2d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        Sports Day
+                    </div>
+                    <div class="gallery-caption">Inter-College Sports Competition</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="background: #1a2a6c; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        Cultural Fest
+                    </div>
+                    <div class="gallery-caption">Annual Cultural Festival</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Recruiters -->
+    <section id="recruiters">
+        <div class="container">
+            <h2 class="section-title">Our Top Recruiters</h2>
+            <div class="recruiters-container">
+                <div class="recruiter-logo">
+                    <span>Google</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>Microsoft</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>Amazon</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>Infosys</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>TCS</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>IBM</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>Accenture</span>
+                </div>
+                <div class="recruiter-logo">
+                    <span>Deloitte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Techwood University</h3>
+                    <p>123 Education Boulevard<br>Knowledge City, KC 12345<br>United States</p>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">LI</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#vision">About Us</a></li>
+                        <li><a href="#courses">Academic Programs</a></li>
+                        <li><a href="#gallery">Campus Life</a></li>
+                        <li><a href="#recruiters">Placements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Email: info@techwood.edu</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Admissions: +1 (555) 123-4568</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Techwood University. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
